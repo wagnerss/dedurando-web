@@ -68,7 +68,7 @@ public class User implements Serializable{
 	@JoinTable(name="DDR_USER_CHECK_POINT", 
 		joinColumns=@JoinColumn(name="USER_ID"),
 		inverseJoinColumns=@JoinColumn(name="CHECK_POINT_ID"))
-	private Collection<CheckPoint> checkPoint;
+	private Collection<Post> checkPoint;
 	
 	@OneToMany
 	@JoinTable(name="DDR_USER_REVIEW", 
@@ -97,10 +97,10 @@ public class User implements Serializable{
 	public void setReview(Collection<Review> review) {
 		this.review = review;
 	}
-	public Collection<CheckPoint> getCheckPoint() {
+	public Collection<Post> getCheckPoint() {
 		return checkPoint;
 	}
-	public void setCheckPoint(Collection<CheckPoint> checkPoint) {
+	public void setCheckPoint(Collection<Post> checkPoint) {
 		this.checkPoint = checkPoint;
 	}
 	public String getMail() {

@@ -41,13 +41,13 @@ public class Review implements Serializable{
 	private User user;
 	
 	@ManyToOne
-	private CheckPoint checkPoint;
+	private Post checkPoint;
 		
 	
-	public CheckPoint getCheckPoint() {
+	public Post getCheckPoint() {
 		return checkPoint;
 	}
-	public void setCheckPoint(CheckPoint checkPoint) {
+	public void setCheckPoint(Post checkPoint) {
 		this.checkPoint = checkPoint;
 	}
 	public User getUser() {

@@ -1,5 +1,6 @@
 package br.com.dedurando.bean;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -7,51 +8,77 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COMMENT")
-@SequenceGenerator(name="seqComment", sequenceName="SEQ_COMMENT", allocationSize=1)
-public class Comment {
+@Table(name="DDR_COMMENT")
+@SequenceGenerator(name="SEG_GEN_COMMENT", sequenceName="SEQ_COMMENT", allocationSize=1)
+public class Comment implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(generator="seqComment", strategy=GenerationType.SEQUENCE)
 	@Column(name="COMMENT_ID")
-	private Long id;
+	@GeneratedValue(generator="SEG_GEN_COMMENT", strategy=GenerationType.SEQUENCE)
+	private Long commentId;
 	
+	@ManyToOne
+	@JoinColumn(name="POST_ID")
+	private Post post;
+	
+	@Column(name="STATUS")
+	private StatusType status;
+
 	@Column(name="LIKE")
-	private char like;
+	private boolean like;
 	
-	@Column(name="CREATED_AT",nullable=false)
+	@Column(name="DESCRIPTION", nullable = false)
+	private String description; 
+
+	@Column(name="CREATED_AT", nullable = false)
 	private Calendar created_at;
 
-	@ManyToOne
-	private CheckPoint checkPoint;
-	
-	public CheckPoint getCheckPoint() {
-		return checkPoint;
+	public Long getCommentId() {
+		return commentId;
 	}
 
-	public void setCheckPoint(CheckPoint checkPoint) {
-		this.checkPoint = checkPoint;
+	public void setCommentId(Long commentId) {
+		this.commentId = commentId;
 	}
 
-	public Long getId() {
-		return id;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
-	public char getLike() {
+	public StatusType getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusType status) {
+		this.status = status;
+	}
+
+	public boolean isLike() {
 		return like;
 	}
 
-	public void setLike(char like) {
+	public void setLike(boolean like) {
 		this.like = like;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Calendar getCreated_at() {
@@ -60,6 +87,6 @@ public class Comment {
 
 	public void setCreated_at(Calendar created_at) {
 		this.created_at = created_at;
-	}
-	
+	}	
+
 }

@@ -1,41 +1,18 @@
 package br.com.dedurando.bean;
 
-import javax.persistence.Column;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="COMPLAINT")
-@SequenceGenerator(name="seqComplaint", sequenceName="SEQ_COMPLAINT", allocationSize=1)
-public class Complaint {
+@Entity  
+@Table(name="DDR_COMPLAINT")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)  
+public class Complaint extends Post implements Serializable {
 	
-	@Id
-	@GeneratedValue(generator="seqComplaint", strategy=GenerationType.SEQUENCE)
-	@Column(name="COMPLAINT_ID")
-	private Long complaintId;
+	private static final long serialVersionUID = 1L;
 
-	@ManyToOne
-	private CheckPoint checkPoint;
-	
-	public CheckPoint getCheckPoint() {
-		return checkPoint;
-	}
-
-	public void setCheckPoint(CheckPoint checkPoint) {
-		this.checkPoint = checkPoint;
-	}
-	
-	public long getComplaintId() {
-		return complaintId;
-	}
-
-	public void setComplaintId(long complaintId) {
-		this.complaintId = complaintId;
-	}
 	
 }
