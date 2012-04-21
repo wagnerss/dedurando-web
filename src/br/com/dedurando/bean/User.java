@@ -17,14 +17,14 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity(name="user")
-@Table(name="USER")
-@SequenceGenerator(name="seqUser", sequenceName="SEQ_USER", allocationSize=1)
+@Table(name="DDR_USER")
+@SequenceGenerator(name="SEQ_GEN_USER", sequenceName="SEQ_USER", allocationSize=1)
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(generator="seqUser", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator="SEQ_GEN_USER", strategy=GenerationType.SEQUENCE)
 	@Column(name="USER_ID")
 	private Long userId;
 	
@@ -67,40 +67,35 @@ public class User implements Serializable{
 	@OneToMany
 	@JoinTable(name="DDR_USER_CHECK_POINT", 
 		joinColumns=@JoinColumn(name="USER_ID"),
-		inverseJoinColumns=@JoinColumn(name="CHECK_POINT_ID"))
-	private Collection<CheckPoint> checkPoint;
+		inverseJoinColumns=@JoinColumn(name="POST_ID"))
+	private Collection<Post> checkPoint;
 	
 	@OneToMany
-	@JoinTable(name="DDR_USER_REVIEW", 
+	@JoinTable(name="DDR_REVIEW", 
 		joinColumns=@JoinColumn(name="USER_ID"),
 		inverseJoinColumns=@JoinColumn(name="REVIEW_ID"))
 	private Collection<Review> review;
 	
 	
 	@ManyToMany
-	@JoinTable(name="DDR_USER_USER_NETWORK", 
+	@JoinTable(name="DDR_USER_USER_TO_USER", 
 		joinColumns=@JoinColumn(name="USER_ID"),
-		inverseJoinColumns=@JoinColumn(name="USER_NETWORK_ID"))
-	private Collection<UserNetwork> userNetwork;
+		inverseJoinColumns=@JoinColumn(name="USER_ID1"))
+	private Collection<User> userToUser;
 	
 	
 	
-	public Collection<UserNetwork> getUserNetwork() {
-		return userNetwork;
-	}
-	public void setUserNetwork(Collection<UserNetwork> userNetwork) {
-		this.userNetwork = userNetwork;
-	}
+	
 	public Collection<Review> getReview() {
 		return review;
 	}
 	public void setReview(Collection<Review> review) {
 		this.review = review;
 	}
-	public Collection<CheckPoint> getCheckPoint() {
+	public Collection<Post> getCheckPoint() {
 		return checkPoint;
 	}
-	public void setCheckPoint(Collection<CheckPoint> checkPoint) {
+	public void setCheckPoint(Collection<Post> checkPoint) {
 		this.checkPoint = checkPoint;
 	}
 	public String getMail() {
@@ -180,6 +175,12 @@ public class User implements Serializable{
 	}
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+	public Collection<UserToUser> getUserToUser() {
+		return userToUser;
+	}
+	public void setUserToUser(Collection<UserToUser> userToUser) {
+		this.userToUser = userToUser;
 	}
 	
 	
