@@ -1,79 +1,95 @@
 package br.com.dedurando.bean;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="REVIEW")
-@SequenceGenerator(name="seqReview", sequenceName="SEQ_REVIEW", allocationSize=1)
+@Table(name="DDR_REVIEW")
+@SequenceGenerator(name="SEQ_GEN_REVIEW", sequenceName="SEQ_REVIEW", allocationSize=1)
 public class Review implements Serializable{
 
-	// como nao sabia que tipo colocar, coloquei esses ai 
-	//                        so para nao ficar em branco
-	public enum type{
-		DENUNCIAFALSA,
-		PORNOGRAFIA,
-		ABUSO
-	}
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(generator="seqReview", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator="SEQ_GEN_REVIEW", strategy=GenerationType.SEQUENCE)
 	@Column(name="REVIEW_ID")
-	private Long id;
-		
-	@Column(name="DESCRIPTION")
-	private String description;
+	private Long reviewId;
 	
+	@ManyToOne
+	@JoinColumn(name="REVIEW_REASON_ID")
+	private ReviewReason reviewReason;
+		
 	@Column(name="STATUS")
 	private char status;
 	
 	@ManyToOne
-	private User user;
-	
+	@JoinColumn(name="POST_ID")
+	private Post post;
+		
 	@ManyToOne
-	private Post checkPoint;
+	@JoinColumn(name="USER_ID")
+	private User user;
 		
-	
-	public Post getCheckPoint() {
-		return checkPoint;
+	@Column(name="CREATED_AT")
+	private Calendar createdAt;
+
+	public Long getReviewId() {
+		return reviewId;
 	}
-	public void setCheckPoint(Post checkPoint) {
-		this.checkPoint = checkPoint;
+
+	public void setReviewId(Long reviewId) {
+		this.reviewId = reviewId;
 	}
-	public User getUser() {
-		return user;
+
+	public ReviewReason getReviewReason() {
+		return reviewReason;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setReviewReason(ReviewReason reviewReason) {
+		this.reviewReason = reviewReason;
 	}
-		
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
 	public char getStatus() {
 		return status;
 	}
+
 	public void setStatus(char status) {
 		this.status = status;
+	}
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Calendar getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Calendar createdAt) {
+		this.createdAt = createdAt;
 	}
 	
 }
