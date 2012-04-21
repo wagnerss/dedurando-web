@@ -10,26 +10,30 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TRANSPORT")
-@SequenceGenerator(name="seqTransport", sequenceName="SEQ_TRANSPORT", allocationSize=1)
+@Table(name="DDR_TRANSPORT")
+@SequenceGenerator(name="SEQ_GEN_TRANSPORT", sequenceName="SEQ_TRANSPORT", allocationSize=1)
 public class Transport {
 	
 	@Id
-	@GeneratedValue(generator="seqTransport", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator="SEQ_GEN_TRANSPORT", strategy=GenerationType.SEQUENCE)
 	@Column(name="TRANSPORT_ID")
 	private Long transportId;
 
 	@ManyToOne
-	private CheckPoint checkPoint;
+	private Post post;
 	
-	public CheckPoint getCheckPoint() {
-		return checkPoint;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setCheckPoint(CheckPoint checkPoint) {
-		this.checkPoint = checkPoint;
+	public void setPost(Post post) {
+		this.post = post;
 	}
-	
+
+	public void setTransportId(Long transportId) {
+		this.transportId = transportId;
+	}
+
 	public long getTransportId() {
 		return transportId;
 	}

@@ -8,42 +8,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="REVIEW")
-@SequenceGenerator(name="seqReview", sequenceName="SEQ_REVIEW", allocationSize=1)
+@Table(name="DDR_REVIEW")
+@SequenceGenerator(name="SEQ_GEN_REVIEW", sequenceName="SEQ_REVIEW", allocationSize=1)
 public class Review implements Serializable{
 
-	// como nao sabia que tipo colocar, coloquei esses ai 
-	//                        so para nao ficar em branco
-	public enum type{
-		DENUNCIAFALSA,
-		PORNOGRAFIA,
-		ABUSO
-	}
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(generator="seqReview", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator="SEQ_GEN_REVIEW", strategy=GenerationType.SEQUENCE)
 	@Column(name="REVIEW_ID")
-	private Long id;
+	private Long reviewId;
 		
-	@Column(name="DESCRIPTION")
-	private String description;
-	
+	//ok
 	@Column(name="STATUS")
 	private char status;
 	
+	//ok
 	@ManyToOne
 	private User user;
 	
+	
 	@ManyToOne
 	private CheckPoint checkPoint;
-		
 	
+	//TODO
+	//colocar mapeamento no POST
+	@OneToMany
+	private ReviewReason reviewReason;
+	
+	public ReviewReason getReviewReason() {
+		return reviewReason;
+	}
+	public void setReviewReason(ReviewReason reviewReason) {
+		this.reviewReason = reviewReason;
+	}
 	public CheckPoint getCheckPoint() {
 		return checkPoint;
 	}
@@ -56,19 +60,14 @@ public class Review implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-		
-	public Long getId() {
-		return id;
+	
+	public Long getReviewId() {
+		return reviewId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setReviewId(Long reviewId) {
+		this.reviewId = reviewId;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 	public char getStatus() {
 		return status;
 	}
