@@ -10,26 +10,30 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SANITATION")
-@SequenceGenerator(name="seqSanitation", sequenceName="SEQ_SANITATION", allocationSize=1)
+@Table(name="DDR_SANITATION")
+@SequenceGenerator(name="SEQ_GEN_SANITATION", sequenceName="SEQ_SANITATION", allocationSize=1)
 public class Sanitation {
 	
 	@Id
-	@GeneratedValue(generator="seqSanitation", strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(generator="SEQ_GEN_SANITATION", strategy=GenerationType.SEQUENCE)
 	@Column(name="SANITATION_ID")
 	private Long sanitationId;
 
 	@ManyToOne
-	private CheckPoint checkPoint;
-		
-	public CheckPoint getCheckPoint() {
-		return checkPoint;
+	private Post post;
+	
+	public Post getPost() {
+		return post;
 	}
 
-	public void setCheckPoint(CheckPoint checkPoint) {
-		this.checkPoint = checkPoint;
+	public void setPost(Post post) {
+		this.post = post;
 	}
-	
+
+	public void setSanitationId(Long sanitationId) {
+		this.sanitationId = sanitationId;
+	}
+
 	public long getSanitationId() {
 		return sanitationId;
 	}
