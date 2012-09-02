@@ -34,7 +34,7 @@ namespace Core.UserServiceService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
     public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string cityField;
@@ -289,10 +289,16 @@ namespace Core.UserServiceService {
         Core.UserServiceService.User unRegister(Core.UserServiceService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Core.UserServiceService.RegisterException), Action="", Name="fault")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="reActiveReturn")]
+        Core.UserServiceService.User reActive(Core.UserServiceService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(Core.UserServiceService.BusinessException), Action="", Name="fault1")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="signInReturn")]
-        bool signIn(Core.UserServiceService.User user);
+        Core.UserServiceService.User signIn(Core.UserServiceService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(Core.UserServiceService.BusinessException), Action="", Name="fault1")]
@@ -307,14 +313,7 @@ namespace Core.UserServiceService {
     [System.ServiceModel.MessageContractAttribute(WrapperName="findAll", WrapperNamespace="http://service.dedurando.com.br", IsWrapped=true)]
     public partial class findAllRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://service.dedurando.com.br", Order=0)]
-        public Core.UserServiceService.User user;
-        
         public findAllRequest() {
-        }
-        
-        public findAllRequest(Core.UserServiceService.User user) {
-            this.user = user;
         }
     }
     
@@ -376,9 +375,8 @@ namespace Core.UserServiceService {
             return base.Channel.findAll(request);
         }
         
-        public User[] findAll(Core.UserServiceService.User user) {
+        public User[] findAll() {
             Core.UserServiceService.findAllRequest inValue = new Core.UserServiceService.findAllRequest();
-            inValue.user = user;
             Core.UserServiceService.findAllResponse retVal = ((Core.UserServiceService.UserService)(this)).findAll(inValue);
             return retVal.findAllReturn;
         }
@@ -387,7 +385,11 @@ namespace Core.UserServiceService {
             return base.Channel.unRegister(user);
         }
         
-        public bool signIn(Core.UserServiceService.User user) {
+        public Core.UserServiceService.User reActive(Core.UserServiceService.User user) {
+            return base.Channel.reActive(user);
+        }
+        
+        public Core.UserServiceService.User signIn(Core.UserServiceService.User user) {
             return base.Channel.signIn(user);
         }
         

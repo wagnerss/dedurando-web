@@ -21,5 +21,11 @@ namespace Core.Models
         [Display(Name = "Status")]
         public int status { get; set; }
 
+        [Required]
+        [StringLength(250, ErrorMessage = "Minimo 6 e no maximo 250 caracteres", MinimumLength = 6)]
+        [DataType(DataType.Text)]
+        [Display(Name = "Descrição")]
+        public string description { get; set; }
+
     }
 }

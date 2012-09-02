@@ -8,7 +8,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -18,10 +20,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.0.1.8:8081/dedurando-ws/services/PostService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.1.101:8081/dedurando-ws/services/PostService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PostService1.wsdl" MetadataType="Wsdl" ID="2c36cfec-2626-4c1e-b932-d1fc894ca0fc" SourceId="1" SourceUrl="http://10.0.1.8:8081/dedurando-ws/services/PostService?wsdl" />
+    <MetadataFile FileName="PostService.wsdl" MetadataType="Wsdl" ID="0e51b1dd-cf04-44ad-a642-368b76dc77f7" SourceId="1" SourceUrl="http://192.168.1.101:8081/dedurando-ws/services/PostService?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
