@@ -34,7 +34,7 @@ namespace Core.PostReference {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+     
     public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string cityField;
@@ -248,7 +248,7 @@ namespace Core.PostReference {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+     
     public partial class Place : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string addressField;
@@ -420,7 +420,7 @@ namespace Core.PostReference {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+    // 
     public partial class Category : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.Nullable<long> categoryIdField;
@@ -480,7 +480,7 @@ namespace Core.PostReference {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+     
     public partial class Item : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Category categoryField;
@@ -490,8 +490,6 @@ namespace Core.PostReference {
         private System.Nullable<long> itemIdField;
         
         private string nameField;
-        
-        private int statusField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
@@ -541,18 +539,6 @@ namespace Core.PostReference {
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public int status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("status");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -568,7 +554,7 @@ namespace Core.PostReference {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://bean.dedurando.com.br")]
+    // 
     public partial class Post : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.Nullable<System.DateTime> createdAtField;
@@ -582,6 +568,8 @@ namespace Core.PostReference {
         private Place placeField;
         
         private System.Nullable<long> postIdField;
+        
+        private int statusField;
         
         private User userField;
         
@@ -658,7 +646,19 @@ namespace Core.PostReference {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public int status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+                this.RaisePropertyChanged("status");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
         public User user {
             get {
                 return this.userField;
@@ -700,11 +700,11 @@ namespace Core.PostReference {
         [return: System.ServiceModel.MessageParameterAttribute(Name="findAllReturn")]
         Core.PostReference.findAllResponse findAll(Core.PostReference.findAllRequest request);
         
-        // CODEGEN: Parameter 'findAllByNameReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        // CODEGEN: Parameter 'findAllByLegendReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="findAllByNameReturn")]
-        Core.PostReference.findAllByNameResponse findAllByName(Core.PostReference.findAllByNameRequest request);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="findAllByLegendReturn")]
+        Core.PostReference.findAllByLegendResponse findAllByLegend(Core.PostReference.findAllByLegendRequest request);
         
         // CODEGEN: Parameter 'findAllByCategoryReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -756,16 +756,16 @@ namespace Core.PostReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllByName", WrapperNamespace="http://service.dedurando.com.br", IsWrapped=true)]
-    public partial class findAllByNameRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllByLegend", WrapperNamespace="http://service.dedurando.com.br", IsWrapped=true)]
+    public partial class findAllByLegendRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://service.dedurando.com.br", Order=0)]
         public Core.PostReference.Post post;
         
-        public findAllByNameRequest() {
+        public findAllByLegendRequest() {
         }
         
-        public findAllByNameRequest(Core.PostReference.Post post) {
+        public findAllByLegendRequest(Core.PostReference.Post post) {
             this.post = post;
         }
     }
@@ -773,18 +773,18 @@ namespace Core.PostReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllByNameResponse", WrapperNamespace="http://service.dedurando.com.br", IsWrapped=true)]
-    public partial class findAllByNameResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllByLegendResponse", WrapperNamespace="http://service.dedurando.com.br", IsWrapped=true)]
+    public partial class findAllByLegendResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://service.dedurando.com.br", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("findAllByNameReturn")]
-        public Post[] findAllByNameReturn;
+        [System.Xml.Serialization.XmlElementAttribute("findAllByLegendReturn")]
+        public Post[] findAllByLegendReturn;
         
-        public findAllByNameResponse() {
+        public findAllByLegendResponse() {
         }
         
-        public findAllByNameResponse(Post[] findAllByNameReturn) {
-            this.findAllByNameReturn = findAllByNameReturn;
+        public findAllByLegendResponse(Post[] findAllByLegendReturn) {
+            this.findAllByLegendReturn = findAllByLegendReturn;
         }
     }
     
@@ -940,15 +940,15 @@ namespace Core.PostReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Core.PostReference.findAllByNameResponse Core.PostReference.PostService.findAllByName(Core.PostReference.findAllByNameRequest request) {
-            return base.Channel.findAllByName(request);
+        Core.PostReference.findAllByLegendResponse Core.PostReference.PostService.findAllByLegend(Core.PostReference.findAllByLegendRequest request) {
+            return base.Channel.findAllByLegend(request);
         }
         
-        public Post[] findAllByName(Core.PostReference.Post post) {
-            Core.PostReference.findAllByNameRequest inValue = new Core.PostReference.findAllByNameRequest();
+        public Post[] findAllByLegend(Core.PostReference.Post post) {
+            Core.PostReference.findAllByLegendRequest inValue = new Core.PostReference.findAllByLegendRequest();
             inValue.post = post;
-            Core.PostReference.findAllByNameResponse retVal = ((Core.PostReference.PostService)(this)).findAllByName(inValue);
-            return retVal.findAllByNameReturn;
+            Core.PostReference.findAllByLegendResponse retVal = ((Core.PostReference.PostService)(this)).findAllByLegend(inValue);
+            return retVal.findAllByLegendReturn;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

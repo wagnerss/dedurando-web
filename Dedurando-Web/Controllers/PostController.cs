@@ -7,20 +7,33 @@ using Core.PostReference;
 
 namespace Core.Controllers
 {
-    public class PostController : Controller{
+    public class PostController : SecurityController{
 
         public ActionResult Index(){
-            return View();
+            PostServiceClient service = new PostServiceClient();
+
+            List<Post> posts = service.findAll().ToList();
+            
+            return View("_post", posts);
+        }
+
+        public ActionResult RedirectToIndex() {
+            return View("_FindPost");
         }
 
         public ActionResult FindPost(){
             return PartialView("_FindPost");
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
         public ActionResult Save(Post post) {
             PostServiceClient service = new PostServiceClient();
             service.save(post);
-            return View();
+            return RedirectToAction("FindPost");
         }
 
         public ActionResult FindById(Post post)
@@ -61,60 +74,47 @@ namespace Core.Controllers
 
 
 
-        //public ActionResult AddPost(Core.Models.Post model) {
+        public ActionResult AddPost(Core.Models.Post model) {
 
-            //PostServiceClient service = new PostServiceClient();
-          
-            //Post p = new Post();
+            PostServiceClient service = new PostServiceClient();
+
+            Post p = new Post();
             
-            //p.createdAt = new DateTime();
-            //p.item = new Item() { name = "0", itemId = 0, category = new Category() { categoryId = 1, name = "categoria", status = 1 } };
-            //p.user = new User()
-            //{
-            //    city = "Sao Paulo",
-            //    country = "local",
-            //    firstName = "Milton",
-            //    lastName = "Quirino",
-            //    mail = "milton@milton.com",
-            //    userId = 0,
-            //    confirmation_token = "",
-            //    password = ""
-            //};
-            //p.place = new Place() { city = "Sampa", name = "teste", placeId = 1 };
-            //p.legend = "teste de post";
+            p.createdAt = new DateTime();
+            p.item = new Item() {category = new Category() { categoryId = 1, name = "categoria", status = 1 } };
+
+            p.user = new User() { userId = ((Core.UserServiceService.User)Session["currentUser"]).userId };
+            p.place = new Place() { city = "Sampa", name = "teste", placeId = 1 };
+           
+            p.legend = model.legend;
+            p.item.description = model.item.description;
+            p.item.category.categoryId = model.item.category.categoryId;
+            
+
+            service.save(p);
+            return RedirectToAction("Index");
+        }
 
 
-            //service.save(p);
-            //return View("Index");
-        //}
+        public ActionResult post(){
 
+            PostServiceClient service = new PostServiceClient();
 
+            List<Post> posts = service.findAll().ToList();
+                //from post in service.findAll()
+                                          //select new Core.Models.Post
+                                          //{
+                                          //    createdAt = post.createdAt,
+                                          //    item = new Models.Item(){
+                                          //        category = 
 
+                                          //    }
+                                          //    post.item,
 
-
-
-
-
-
-
-
-        //public ActionResult Post(){
-
-        //    Post p = new Post();
-        //    p.createdAt = new DateTime();
-        //    p.item = new Item() { name = "0", itemId = 0, category = new Category() {  categoryId=1, name="categoria",status = 1} };
-        //    p.user = new User() { city = "Sao Paulo", country = "local", firstName= "Milton", lastName= "Quirino", mail =  "milton@milton.com", userId= 0, confirmation_token = "",
-        //     password= ""};
-        //    p.place = new Place() { city = "Sampa", name = "teste", placeId = 1 };
-        //    p.legend = "teste de post";
-        //    //p.photo = new byte[] { };
-        //    p.post = new List<Post>{};
-        //    Post post = new Post();
-        //    post.post = new List<Models.Post>();
-        //    post.post.Add(p);
-        //    post.post.Add(p);
-        //    return View("_Post", post);
-        //}
+                                          //};
+           
+            return View("_post", posts);
+        }
         
 
 

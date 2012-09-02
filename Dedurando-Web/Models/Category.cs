@@ -8,7 +8,7 @@ namespace Core.Models
 {
     public class Category{
 
-        [Display(Name = "Categoria  ID")]
+        [Display(Name = "Categoria")]
         public long categoryId{get;set;}
 
         [Display(Name = "Categoria")]

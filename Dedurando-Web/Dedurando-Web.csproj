@@ -130,6 +130,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -330,7 +331,7 @@
     </None>
     <None Include="Service References\PostReference\configuration91.svcinfo" />
     <None Include="Service References\PostReference\configuration.svcinfo" />
-    <None Include="Service References\PostReference\PostService1.wsdl" />
+    <None Include="Service References\PostReference\PostService.wsdl" />
     <None Include="Service References\PostReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -391,8 +392,9 @@
     <Content Include="Views\Post\_RegisterPost.cshtml" />
     <Content Include="Views\Post\_Post.cshtml" />
     <Content Include="Views\Shared\Copy of _Layout.cshtml" />
-    <None Include="Service References\UserServiceService\UserService.wsdl" />
     <Content Include="Views\Post\_FindPost.cshtml" />
+    <None Include="Service References\UserServiceService\UserService.wsdl" />
+    <Content Include="Views\Post\New.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml_bkp" />
   </ItemGroup>
   <ItemGroup>

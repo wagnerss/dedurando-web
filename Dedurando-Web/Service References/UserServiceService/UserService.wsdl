@@ -34,11 +34,7 @@
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="findAll">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="user" type="tns1:User" />
-          </xsd:sequence>
-        </xsd:complexType>
+        <xsd:complexType />
       </xsd:element>
       <xsd:element name="findAllResponse">
         <xsd:complexType>
@@ -61,6 +57,20 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="reActive">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reActiveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="reActiveReturn" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="signIn">
         <xsd:complexType>
           <xsd:sequence>
@@ -71,7 +81,7 @@
       <xsd:element name="signInResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="signInReturn" type="xsd:boolean" />
+            <xsd:element name="signInReturn" type="tns1:User" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -146,6 +156,9 @@
   <wsdl:message name="findResponse">
     <wsdl:part name="parameters" element="impl:findResponse" />
   </wsdl:message>
+  <wsdl:message name="reActiveRequest">
+    <wsdl:part name="parameters" element="impl:reActive" />
+  </wsdl:message>
   <wsdl:message name="findAllResponse">
     <wsdl:part name="parameters" element="impl:findAllResponse" />
   </wsdl:message>
@@ -157,6 +170,9 @@
   </wsdl:message>
   <wsdl:message name="registerResponse">
     <wsdl:part name="parameters" element="impl:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="reActiveResponse">
+    <wsdl:part name="parameters" element="impl:reActiveResponse" />
   </wsdl:message>
   <wsdl:message name="BusinessException">
     <wsdl:part name="fault1" element="impl:fault1" />
@@ -181,6 +197,11 @@
     <wsdl:operation name="unRegister">
       <wsdl:input name="unRegisterRequest" message="impl:unRegisterRequest" />
       <wsdl:output name="unRegisterResponse" message="impl:unRegisterResponse" />
+      <wsdl:fault name="RegisterException" message="impl:RegisterException" />
+    </wsdl:operation>
+    <wsdl:operation name="reActive">
+      <wsdl:input name="reActiveRequest" message="impl:reActiveRequest" />
+      <wsdl:output name="reActiveResponse" message="impl:reActiveResponse" />
       <wsdl:fault name="RegisterException" message="impl:RegisterException" />
     </wsdl:operation>
     <wsdl:operation name="signIn">
@@ -238,6 +259,18 @@
         <wsdlsoap:fault use="literal" name="RegisterException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="reActive">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="reActiveRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reActiveResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RegisterException">
+        <wsdlsoap:fault use="literal" name="RegisterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="signIn">
       <wsdlsoap:operation soapAction="" />
       <wsdl:input name="signInRequest">
@@ -265,7 +298,7 @@
   </wsdl:binding>
   <wsdl:service name="UserServiceService">
     <wsdl:port name="UserService" binding="impl:UserServiceSoapBinding">
-      <wsdlsoap:address location="http://10.0.1.8:8081/dedurando-ws/services/UserService" />
+      <wsdlsoap:address location="http://192.168.1.101:8081/dedurando-ws/services/UserService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

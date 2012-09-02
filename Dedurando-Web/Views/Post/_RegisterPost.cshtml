@@ -1,27 +1,53 @@
 ﻿@model Core.Models.Post
-
+@{
+    List<SelectListItem> items = new List<SelectListItem>();
+    
+    items.Add(new SelectListItem
+    {
+        Text = "Pavimentação",
+        Value = "1"
+    });
+    items.Add(new SelectListItem
+    {
+        Text = "Saneamento",
+        Value = "2",
+        Selected = true
+    });
+    items.Add(new SelectListItem
+    {
+        Text = "Segurança",
+        Value = "3"
+    });
+    items.Add(new SelectListItem
+    {
+        Text = "Educação",
+        Value = "4"
+    });
+    }
 
 @using (Html.BeginForm("AddPost", "Post"))
 {
     
      <fieldset>
-        <legend>Registrar</legend>
+        <legend></legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.legend)
                 @Html.EditorFor(m => m.legend)
                 @Html.ValidationMessageFor(m => m.legend)
             </li>
+
             <li>
-                @Html.LabelFor(m => m.item.name)
-                @Html.TextBoxFor(m => m.item.name)
-                @Html.ValidationMessageFor(m => m.item.name)
+                @Html.LabelFor(m => m.item.category.categoryId)
+                @Html.DropDownListFor(m => m.item.category.categoryId , items)
+                @Html.ValidationMessageFor(m => m.item.category.categoryId)
             </li>
             <li>
-                @Html.LabelFor(m => m.item.category)
-                @Html.EditorFor(m => m.item.category)
-                @Html.ValidationMessageFor(m => m.item.category)
+                @Html.LabelFor(m => m.item.description)
+                @Html.TextAreaFor(m => m.item.description)
+                @Html.ValidationMessageFor(m => m.item.description)
             </li>
+
             @Html.HiddenFor(m => m.item.itemId)
             @Html.HiddenFor(m => m.item.category.categoryId)
 

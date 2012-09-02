@@ -8,7 +8,7 @@ using System.ServiceModel;
 
 namespace Core.Controllers
 {
-    public class LoginController : Controller{
+    public class LoginController : Controller {
         
         public ActionResult Index()
         {
@@ -43,7 +43,7 @@ namespace Core.Controllers
                 throw new FaultException("Usuario ou senha invalido |" +ex);
             }
             
-            return View("_Login");
+            return RedirectToAction("Index","Post");
         }
 
         public ActionResult SignOut(User user){
@@ -57,7 +57,7 @@ namespace Core.Controllers
                 throw new FaultException("Usuario nao possui sessao ativa |" + ex);
             }
 
-            return View("_Login");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult ConfirmEmail(string tolken)

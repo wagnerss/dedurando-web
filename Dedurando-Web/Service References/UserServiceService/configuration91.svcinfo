@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="BiVl3Nn93aNsuUN4JujHOPWum1k=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QeYrtQ4GfkqYGbEGpmsv3AHLAl8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="UserServiceSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="UserService" contract="UserServiceService.UserService" bindingType="basicHttpBinding" address="http://10.0.1.8:8081/dedurando-ws/services/UserService" bindingConfiguration="UserServiceSoapBinding">
+    <endpoint name="UserService" contract="UserServiceService.UserService" bindingType="basicHttpBinding" address="http://192.168.1.101:8081/dedurando-ws/services/UserService" bindingConfiguration="UserServiceSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.0.1.8:8081/dedurando-ws/services/UserService</serializedValue>
+          <serializedValue>http://192.168.1.101:8081/dedurando-ws/services/UserService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
