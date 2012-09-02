@@ -1,0 +1,108 @@
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Core.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Core.pdb
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Antlr3.Runtime.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\EntityFramework.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Microsoft.Web.Infrastructure.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Newtonsoft.Json.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.Formatting.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.WebRequest.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Helpers.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Http.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Http.WebHost.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Mvc.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Optimization.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Providers.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Razor.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.Deployment.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.Razor.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\WebGrease.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\EntityFramework.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\Newtonsoft.Json.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.Formatting.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Net.Http.WebRequest.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Helpers.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Http.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Http.WebHost.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Mvc.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.Razor.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.Deployment.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\bin\System.Web.WebPages.Razor.xml
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\obj\Debug\ResolveAssemblyReference.cache
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\obj\Debug\Core.dll
+c:\users\milton\documents\visual studio 2010\Projects\Core\Core\obj\Debug\Core.pdb
+C:\projects\asp.net\dedurando\Core\bin\Core.dll
+C:\projects\asp.net\dedurando\Core\bin\Core.pdb
+C:\projects\asp.net\dedurando\Core\bin\Antlr3.Runtime.dll
+C:\projects\asp.net\dedurando\Core\bin\EntityFramework.dll
+C:\projects\asp.net\dedurando\Core\bin\Microsoft.Web.Infrastructure.dll
+C:\projects\asp.net\dedurando\Core\bin\Newtonsoft.Json.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.Formatting.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.WebRequest.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Helpers.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Http.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Http.WebHost.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Mvc.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Optimization.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Providers.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Razor.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.Deployment.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.dll
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.Razor.dll
+C:\projects\asp.net\dedurando\Core\bin\WebGrease.dll
+C:\projects\asp.net\dedurando\Core\bin\EntityFramework.xml
+C:\projects\asp.net\dedurando\Core\bin\Newtonsoft.Json.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.Formatting.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Net.Http.WebRequest.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Helpers.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Http.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Http.WebHost.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Mvc.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.Razor.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.Deployment.xml
+C:\projects\asp.net\dedurando\Core\bin\System.Web.WebPages.Razor.xml
+C:\projects\asp.net\dedurando\Core\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\asp.net\dedurando\Core\obj\Debug\Core.dll
+C:\projects\asp.net\dedurando\Core\obj\Debug\Core.pdb
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Core.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Core.pdb
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Antlr3.Runtime.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\EntityFramework.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Newtonsoft.Json.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.Formatting.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.WebRequest.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Helpers.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Http.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Http.WebHost.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Mvc.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Optimization.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Providers.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Razor.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.Deployment.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.Razor.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\WebGrease.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\EntityFramework.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\Newtonsoft.Json.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.Formatting.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Net.Http.WebRequest.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Helpers.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Http.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Http.WebHost.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Mvc.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.Razor.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.Deployment.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\bin\System.Web.WebPages.Razor.xml
+C:\Users\milton\Downloads\davi\dedurando\Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\milton\Downloads\davi\dedurando\Core\obj\Debug\Core.dll
+C:\Users\milton\Downloads\davi\dedurando\Core\obj\Debug\Core.pdb

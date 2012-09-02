@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns2="http://business.dedurando.com.br" xmlns:intf="http://service.dedurando.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://bean.dedurando.com.br" xmlns:impl="http://service.dedurando.com.br" targetNamespace="http://service.dedurando.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://service.dedurando.com.br">
+      <xsd:import namespace="http://bean.dedurando.com.br" />
+      <xsd:import namespace="http://business.dedurando.com.br" />
+      <xsd:element name="register">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="registerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="registerReturn" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fault" type="tns2:RegisterException" />
+      <xsd:element name="find">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="findReturn" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAll">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findAllReturn" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unRegister">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unRegisterResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="unRegisterReturn" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="signIn">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="signInResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="signInReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fault1" type="tns2:BusinessException" />
+      <xsd:element name="resetPassword">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="tns1:User" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="resetPasswordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="resetPasswordReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://bean.dedurando.com.br">
+      <xsd:import namespace="http://business.dedurando.com.br" />
+      <xsd:complexType name="User">
+        <xsd:sequence>
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="confirmation_token" nillable="true" type="xsd:string" />
+          <xsd:element name="country" nillable="true" type="xsd:string" />
+          <xsd:element name="created_at" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="ipAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="mail" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="phone" nillable="true" type="xsd:string" />
+          <xsd:element name="photo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="resetPasswordToken" nillable="true" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="userId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://business.dedurando.com.br">
+      <xsd:import namespace="http://bean.dedurando.com.br" />
+      <xsd:complexType name="RegisterException">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="BusinessException">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="resetPasswordRequest">
+    <wsdl:part name="parameters" element="impl:resetPassword" />
+  </wsdl:message>
+  <wsdl:message name="unRegisterResponse">
+    <wsdl:part name="parameters" element="impl:unRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="signInResponse">
+    <wsdl:part name="parameters" element="impl:signInResponse" />
+  </wsdl:message>
+  <wsdl:message name="findRequest">
+    <wsdl:part name="parameters" element="impl:find" />
+  </wsdl:message>
+  <wsdl:message name="registerRequest">
+    <wsdl:part name="parameters" element="impl:register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterException">
+    <wsdl:part name="fault" element="impl:fault" />
+  </wsdl:message>
+  <wsdl:message name="resetPasswordResponse">
+    <wsdl:part name="parameters" element="impl:resetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="findResponse">
+    <wsdl:part name="parameters" element="impl:findResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllResponse">
+    <wsdl:part name="parameters" element="impl:findAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="signInRequest">
+    <wsdl:part name="parameters" element="impl:signIn" />
+  </wsdl:message>
+  <wsdl:message name="unRegisterRequest">
+    <wsdl:part name="parameters" element="impl:unRegister" />
+  </wsdl:message>
+  <wsdl:message name="registerResponse">
+    <wsdl:part name="parameters" element="impl:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessException">
+    <wsdl:part name="fault1" element="impl:fault1" />
+  </wsdl:message>
+  <wsdl:message name="findAllRequest">
+    <wsdl:part name="parameters" element="impl:findAll" />
+  </wsdl:message>
+  <wsdl:portType name="UserService">
+    <wsdl:operation name="register">
+      <wsdl:input name="registerRequest" message="impl:registerRequest" />
+      <wsdl:output name="registerResponse" message="impl:registerResponse" />
+      <wsdl:fault name="RegisterException" message="impl:RegisterException" />
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input name="findRequest" message="impl:findRequest" />
+      <wsdl:output name="findResponse" message="impl:findResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdl:input name="findAllRequest" message="impl:findAllRequest" />
+      <wsdl:output name="findAllResponse" message="impl:findAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unRegister">
+      <wsdl:input name="unRegisterRequest" message="impl:unRegisterRequest" />
+      <wsdl:output name="unRegisterResponse" message="impl:unRegisterResponse" />
+      <wsdl:fault name="RegisterException" message="impl:RegisterException" />
+    </wsdl:operation>
+    <wsdl:operation name="signIn">
+      <wsdl:input name="signInRequest" message="impl:signInRequest" />
+      <wsdl:output name="signInResponse" message="impl:signInResponse" />
+      <wsdl:fault name="BusinessException" message="impl:BusinessException" />
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <wsdl:input name="resetPasswordRequest" message="impl:resetPasswordRequest" />
+      <wsdl:output name="resetPasswordResponse" message="impl:resetPasswordResponse" />
+      <wsdl:fault name="BusinessException" message="impl:BusinessException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserServiceSoapBinding" type="impl:UserService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="register">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="registerRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="registerResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RegisterException">
+        <wsdlsoap:fault use="literal" name="RegisterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAllRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unRegister">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="unRegisterRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="unRegisterResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RegisterException">
+        <wsdlsoap:fault use="literal" name="RegisterException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="signIn">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="signInRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="signInResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <wsdlsoap:fault use="literal" name="BusinessException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="resetPasswordRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="resetPasswordResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <wsdlsoap:fault use="literal" name="BusinessException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserServiceService">
+    <wsdl:port name="UserService" binding="impl:UserServiceSoapBinding">
+      <wsdlsoap:address location="http://10.0.1.8:8081/dedurando-ws/services/UserService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

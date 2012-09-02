@@ -1,0 +1,51 @@
+﻿@model Core.Models.User
+
+
+@using (Html.BeginForm("Register","Login")) {
+    @Html.ValidationSummary(true, "Corrija os erros e tente novamente.")
+
+    <fieldset>
+        <legend>Registrar</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.firstName)
+                @Html.TextBoxFor(m => m.firstName)
+                @Html.ValidationMessageFor(m => m.firstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.lastName)
+                @Html.TextBoxFor(m => m.lastName)
+                @Html.ValidationMessageFor(m => m.firstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.mail)
+                @Html.TextBoxFor(m => m.mail)
+                @Html.ValidationMessageFor(m => m.firstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.city)
+                @Html.TextBoxFor(m => m.city)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.country)
+                @Html.TextBoxFor(m => m.country)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.phone)
+                @Html.TextBoxFor(m => m.phone)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.city)
+                @Html.TextBoxFor(m => m.city)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.password)
+                @Html.PasswordFor(m => m.password)
+            </li>
+        </ol>
+        <input type="submit" value="Registrar" />
+    </fieldset>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

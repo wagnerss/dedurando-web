@@ -1,0 +1,35 @@
+﻿@model Core.Models.Post
+
+
+@using (Html.BeginForm("AddPost", "Post"))
+{
+    
+     <fieldset>
+        <legend>Registrar</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.legend)
+                @Html.EditorFor(m => m.legend)
+                @Html.ValidationMessageFor(m => m.legend)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.item.name)
+                @Html.TextBoxFor(m => m.item.name)
+                @Html.ValidationMessageFor(m => m.item.name)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.item.category)
+                @Html.EditorFor(m => m.item.category)
+                @Html.ValidationMessageFor(m => m.item.category)
+            </li>
+            @Html.HiddenFor(m => m.item.itemId)
+            @Html.HiddenFor(m => m.item.category.categoryId)
+
+        </ol>
+    </fieldset>
+    <input type="submit" value="Dedurar" />
+}
+
+<script type="text/javascript">
+    
+</script>
