@@ -5,8 +5,8 @@
     @Html.ValidationSummary()
 
     <fieldset>
-        <legend>Registrar</legend>
-        <ol>
+        <legend></legend>
+        <ul class="clearfix" style="list-style:none">
             <li>
                 @Html.Label("Login")
                 @Html.TextBoxFor(m => m.mail)
@@ -15,8 +15,8 @@
                 @Html.Label("Senha")
                 @Html.PasswordFor(m => m.password)
             </li>
-        </ol>
-        <input type="submit" value="SignIn" />
+        </ul>
+        <input type="submit" value="Logar" />
     </fieldset>
 }
 @section Scripts {

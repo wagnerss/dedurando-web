@@ -18,6 +18,8 @@ namespace Core.Models{
 
             public User user { get; set; }
 
+           
+
             [Display(Name = "Foto")]
             public byte[] photo { get; set; }
 
