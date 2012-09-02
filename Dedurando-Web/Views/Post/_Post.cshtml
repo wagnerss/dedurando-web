@@ -1,0 +1,20 @@
+﻿@model Core.Models.Post
+
+<h1>Ultimos Post's</h1>
+<br />
+
+@foreach(var m in Model.post){
+   
+    <span>Cria/do em @m.createdAt</span>
+    <br />
+    <span>@m.legend</span>
+    <br />
+    <span>@m.user.city</span>
+    <br />
+    <span>@m.user.firstName</span>
+    <br />
+    <span>@m.user.lastName</span>   
+    <br />    
+    <span>----------------------------------------</span>
+     <br /> 
+}
