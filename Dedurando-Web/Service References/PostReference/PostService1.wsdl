@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns2="http://business.dedurando.com.br" xmlns:intf="http://service.dedurando.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://bean.dedurando.com.br" xmlns:impl="http://service.dedurando.com.br" targetNamespace="http://service.dedurando.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://service.dedurando.com.br">
+      <xsd:import namespace="http://bean.dedurando.com.br" />
+      <xsd:import namespace="http://business.dedurando.com.br" />
+      <xsd:element name="find">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="post" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="findReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="save">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="post" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="saveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="saveReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fault" type="tns2:BusinessException" />
+      <xsd:element name="findAll">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="findAllResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findAllReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByName">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="post" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByNameResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findAllByNameReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByCategory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="category" type="tns1:Category" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByCategoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findAllByCategoryReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findRecent">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="post" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findRecentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findRecentReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByLatitudeAndLongitude">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="post" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllByLatitudeAndLongitudeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="findAllByLatitudeAndLongitudeReturn" type="tns1:Post" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://bean.dedurando.com.br">
+      <xsd:import namespace="http://business.dedurando.com.br" />
+      <xsd:complexType name="Category">
+        <xsd:sequence>
+          <xsd:element name="categoryId" nillable="true" type="xsd:long" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Item">
+        <xsd:sequence>
+          <xsd:element name="category" nillable="true" type="tns1:Category" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="itemId" nillable="true" type="xsd:long" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Place">
+        <xsd:sequence>
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="complement" nillable="true" type="xsd:string" />
+          <xsd:element name="country" nillable="true" type="xsd:string" />
+          <xsd:element name="latitude" type="xsd:double" />
+          <xsd:element name="longitude" type="xsd:double" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="neighborhood" nillable="true" type="xsd:string" />
+          <xsd:element name="number" type="xsd:long" />
+          <xsd:element name="placeId" type="xsd:long" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="User">
+        <xsd:sequence>
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="confirmation_token" nillable="true" type="xsd:string" />
+          <xsd:element name="country" nillable="true" type="xsd:string" />
+          <xsd:element name="created_at" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="ipAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="mail" nillable="true" type="xsd:string" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="phone" nillable="true" type="xsd:string" />
+          <xsd:element name="photo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="resetPasswordToken" nillable="true" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="userId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Post">
+        <xsd:sequence>
+          <xsd:element name="createdAt" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="item" nillable="true" type="tns1:Item" />
+          <xsd:element name="legend" nillable="true" type="xsd:string" />
+          <xsd:element name="photo" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="place" nillable="true" type="tns1:Place" />
+          <xsd:element name="postId" nillable="true" type="xsd:long" />
+          <xsd:element name="user" nillable="true" type="tns1:User" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://business.dedurando.com.br">
+      <xsd:import namespace="http://bean.dedurando.com.br" />
+      <xsd:complexType name="BusinessException">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="findAllByLatitudeAndLongitudeRequest">
+    <wsdl:part name="parameters" element="impl:findAllByLatitudeAndLongitude" />
+  </wsdl:message>
+  <wsdl:message name="findAllByLatitudeAndLongitudeResponse">
+    <wsdl:part name="parameters" element="impl:findAllByLatitudeAndLongitudeResponse" />
+  </wsdl:message>
+  <wsdl:message name="findRecentResponse">
+    <wsdl:part name="parameters" element="impl:findRecentResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllByNameRequest">
+    <wsdl:part name="parameters" element="impl:findAllByName" />
+  </wsdl:message>
+  <wsdl:message name="findRequest">
+    <wsdl:part name="parameters" element="impl:find" />
+  </wsdl:message>
+  <wsdl:message name="findAllByNameResponse">
+    <wsdl:part name="parameters" element="impl:findAllByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="findResponse">
+    <wsdl:part name="parameters" element="impl:findResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllResponse">
+    <wsdl:part name="parameters" element="impl:findAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveRequest">
+    <wsdl:part name="parameters" element="impl:save" />
+  </wsdl:message>
+  <wsdl:message name="findAllByCategoryRequest">
+    <wsdl:part name="parameters" element="impl:findAllByCategory" />
+  </wsdl:message>
+  <wsdl:message name="BusinessException">
+    <wsdl:part name="fault" element="impl:fault" />
+  </wsdl:message>
+  <wsdl:message name="findAllByCategoryResponse">
+    <wsdl:part name="parameters" element="impl:findAllByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part name="parameters" element="impl:saveResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllRequest">
+    <wsdl:part name="parameters" element="impl:findAll" />
+  </wsdl:message>
+  <wsdl:message name="findRecentRequest">
+    <wsdl:part name="parameters" element="impl:findRecent" />
+  </wsdl:message>
+  <wsdl:portType name="PostService">
+    <wsdl:operation name="find">
+      <wsdl:input name="findRequest" message="impl:findRequest" />
+      <wsdl:output name="findResponse" message="impl:findResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <wsdl:input name="saveRequest" message="impl:saveRequest" />
+      <wsdl:output name="saveResponse" message="impl:saveResponse" />
+      <wsdl:fault name="BusinessException" message="impl:BusinessException" />
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdl:input name="findAllRequest" message="impl:findAllRequest" />
+      <wsdl:output name="findAllResponse" message="impl:findAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findAllByName">
+      <wsdl:input name="findAllByNameRequest" message="impl:findAllByNameRequest" />
+      <wsdl:output name="findAllByNameResponse" message="impl:findAllByNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findAllByCategory">
+      <wsdl:input name="findAllByCategoryRequest" message="impl:findAllByCategoryRequest" />
+      <wsdl:output name="findAllByCategoryResponse" message="impl:findAllByCategoryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findRecent">
+      <wsdl:input name="findRecentRequest" message="impl:findRecentRequest" />
+      <wsdl:output name="findRecentResponse" message="impl:findRecentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findAllByLatitudeAndLongitude">
+      <wsdl:input name="findAllByLatitudeAndLongitudeRequest" message="impl:findAllByLatitudeAndLongitudeRequest" />
+      <wsdl:output name="findAllByLatitudeAndLongitudeResponse" message="impl:findAllByLatitudeAndLongitudeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PostServiceSoapBinding" type="impl:PostService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="find">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="saveRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BusinessException">
+        <wsdlsoap:fault use="literal" name="BusinessException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAllRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllByName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAllByNameRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllByNameResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllByCategory">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAllByCategoryRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllByCategoryResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findRecent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findRecentRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findRecentResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllByLatitudeAndLongitude">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAllByLatitudeAndLongitudeRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllByLatitudeAndLongitudeResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PostServiceService">
+    <wsdl:port name="PostService" binding="impl:PostServiceSoapBinding">
+      <wsdlsoap:address location="http://10.0.1.8:8081/dedurando-ws/services/PostService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
