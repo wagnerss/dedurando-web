@@ -13,6 +13,52 @@ namespace Core.Controllers
             return View();
         }
 
+        public ActionResult FindPost(){
+            return PartialView("_FindPost");
+        }
+
+        public ActionResult Save(Post post) {
+            PostServiceClient service = new PostServiceClient();
+            service.save(post);
+            return View();
+        }
+
+        public ActionResult FindById(Post post)
+        {
+            PostServiceClient service = new PostServiceClient();
+            
+            service.find(post);
+            return View();
+        }
+
+        //
+        public ActionResult FindByLegend(Post post){
+            PostServiceClient service = new PostServiceClient();
+            //Davi ira fazer o metodo 
+            //service.findByLegend(post);
+            return PartialView("_FindPost");
+        }
+
+        public ActionResult FindByLatLong(Post post)
+        {
+            PostServiceClient service = new PostServiceClient();
+            //Davi ira fazer o metodo 
+            service.findAllByLatitudeAndLongitude(post);
+            return View();
+        }
+
+        //alterar o status para desativo
+        public ActionResult Delete(Post post){
+            PostServiceClient service = new PostServiceClient();
+            //service.delete(post);
+            return View();
+        }
+
+
+
+
+
+
 
 
         //public ActionResult AddPost(Core.Models.Post model) {

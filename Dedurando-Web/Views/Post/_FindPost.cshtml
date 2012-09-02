@@ -1,0 +1,50 @@
+﻿@*@Ajax.ActionLink("Localizar Post por Legenda", "FindByLegend", "Post", new AjaxOptions { OnSuccess = "findByLegendSuccess(data)", OnFailure = "findByLegendFailure(data)" })
+@Ajax.ActionLink("Localizar Por Latitude/Longitude", "findAllByLatitudeAndLongitude", "Post", new AjaxOptions { OnSuccess = "findAllByLatitudeAndLongitudeSuccess(data)", OnFailure = "findAllByLatitudeAndLongitudeFailure(data)" })
+*@
+@model Core.Models.Post
+
+@using (Html.BeginForm("Localizar Post por Legenda", "FindByLegend", "Post")) { 
+    <fieldset>
+        <legend>Localizar Post</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.legend)
+                    @Html.EditorFor(m => m.legend, new {id="findByLegend" })
+                </li>
+                <li id="li_latLong">
+                    @Html.Label("Longitude")
+                    @Html.EditorFor(m => m.place.latitude)
+
+                    @Html.Label("Latitude")
+                    @Html.EditorFor(m => m.place.longitude)
+                </li>
+            </ol>
+
+    </fieldset>
+
+}
+
+<script type="text/javascript">
+
+//    $("#findByLegend").click(function () {
+//        alert("aaaaaaa");
+//        $("#li_latLong").attr("disabled", true);
+//    });
+
+    function findByLegendSuccess(data) {
+        alert("findByLegendSuccess| "+data);
+    }
+    
+    function findByLegendFailure(data) {
+        alert("findByLegendFailure| " + data);
+    }
+
+    function findAllByLatitudeAndLongitudeSuccess(data) {
+        alert("findAllByLatitudeAndLongitudeSuccess| " + data);
+    }
+
+    function findAllByLatitudeAndLongitudeFailure(data) {
+        alert("findAllByLatitudeAndLongitudeFailure| " + data);
+    }
+    
+</script>

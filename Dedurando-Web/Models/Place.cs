@@ -16,5 +16,11 @@ namespace Core.Models
     [Display(Name = "Local")]
 	public String name{get;set;}
 
+    [Display(Name = "Longitude")]
+    public long longitude { get; set; }
+
+    [Display(Name = "Latitude")]
+    public long latitude { get; set; }
+
     }
 }
