@@ -16,9 +16,7 @@ namespace Core.Models{
 
             public Place place { get; set; }
 
-            public User user { get; set; }
-
-           
+            public Core.UserServiceService.User user { get; set; }
 
             [Display(Name = "Foto")]
             public byte[] photo { get; set; }

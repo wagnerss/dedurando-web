@@ -1,19 +1,32 @@
-﻿@model Core.Models.Post
+﻿@model IEnumerable<Core.PostReference.Post> 
+
+
+@{
+    var r = "";
+
+    
+    }
 
 <h1>Ultimos Post's</h1>
 <br />
 
-@foreach(var m in Model.post){
+@foreach (var m in Model)
+{
    
-    <span>Cria/do em @m.createdAt</span>
+    
     <br />
     <span>@m.legend</span>
+    <br />
+    <span>@m.item.category.name</span>
     <br />
     <span>@m.user.city</span>
     <br />
     <span>@m.user.firstName</span>
     <br />
-    <span>@m.user.lastName</span>   
+    <span>@m.user.lastName</span> 
+    <br /> 
+        <span>@m.item.description</span>   
+    <br />  
     <br />    
     <span>----------------------------------------</span>
      <br /> 
