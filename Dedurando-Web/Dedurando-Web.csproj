@@ -392,6 +392,7 @@
     <Content Include="Views\Post\_Post.cshtml" />
     <Content Include="Views\Shared\Copy of _Layout.cshtml" />
     <None Include="Service References\UserServiceService\UserService.wsdl" />
+    <Content Include="Views\Post\_FindPost.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml_bkp" />
   </ItemGroup>
   <ItemGroup>
